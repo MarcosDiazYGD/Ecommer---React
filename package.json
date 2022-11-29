@@ -1,0 +1,31 @@
+{
+  "name": "e-commerce-part1",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.0",
+    "axios": "^1.2.0",
+    "bootstrap": "^5.2.3",
+    "bootswatch": "^5.2.2",
+    "imagehover.css": "^2.0.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.6.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.39.7",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.4.3",
+    "reactstrap": "^9.1.5"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "@vitejs/plugin-react": "^2.2.0",
+    "vite": "^3.2.3"
+  }
+}
