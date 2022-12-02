@@ -3,7 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { setProductsThunk } from '../store/slices/Products.slice';
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = () => {
@@ -33,19 +33,22 @@ const Login = () => {
   }
   return (
     <div className='Login'>
-      <Form onSubmit={handleSubmit(submit)}>
+      <Form onSubmit={handleSubmit(submit)} className='login-form'>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" {...register('email')} />
+          <Form.Control type="email" placeholder="Enter email" {...register('email')} className='login-input'/>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" {...register('password')} />
+          <Form.Control type="password" placeholder="Password" {...register('password')} className='login-input'/>
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className='login-button'>
           Submit
         </Button>
+
+        <Link className='link-signup' to={'/signup'}>create acount</Link>
+
       </Form>
     </div>
   );

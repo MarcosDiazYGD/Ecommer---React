@@ -1,25 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import Slide from '../components/Slide';
+import { addProductThunk } from '../store/slices/cart.slice';
 import { setProductsThunk } from '../store/slices/Products.slice';
 
 const ProductDetail = () => {
-
-
   const { id } = useParams()
   const products = useSelector(state => state.products)
   const product = products.find(item => item.id === Number(id))
   const dispatch = useDispatch()
+  const [amountProduct, setAmountProduct] = useState(1)
+  const similarProducts = products.filter(p => p.category.id === product.category.id)
+  const upp = () => window.scrollTo(0, 0)
 
   useEffect(() => {
     dispatch(setProductsThunk())
   }, [])
 
-  const similarProducts = products.filter(p => p.category.id === product.category.id)
-
-  console.log(product);
+  const addToCart =  () => {
+    const addingProduct = {
+      id: Number(id),
+      quantity: amountProduct
+    }
+    dispatch(addProductThunk(addingProduct))
+  }
   return (
     <Container className='my-1'>
       <div className='ProductDetail'>
@@ -33,7 +39,12 @@ const ProductDetail = () => {
             <p>{product?.description}</p>
 
             <div className='productDetail-buttons'>
-              <button>Add to cart</button>
+              <button onClick={addToCart}>Add to cart</button>
+              <input type="number"
+                value={Number(amountProduct)}
+                onChange={e => setAmountProduct(e.target.value)}
+                min='1'
+                className='amountProduct' />
               <span>{product?.price}</span>
             </div>
           </div>
@@ -41,9 +52,9 @@ const ProductDetail = () => {
         <div >
           <h3 className='similar-products-title'>Similar Products</h3>
           <div className='container-similar-products'>{similarProducts.map(p => (
-            <Link to={`/products/${p.id}`} key={p.id} className='card-similar-product'>
-                <img src={p.productImgs[0]} className='similar-product-image' />
-                <h5>{p.title}</h5>
+            <Link onClick={upp} to={`/products/${p.id}`} key={p.id} className='card-similar-product'>
+              <img src={p.productImgs[0]} className='similar-product-image' />
+              <h5>{p.title}</h5>
             </Link>
           ))}</div>
         </div>

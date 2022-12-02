@@ -22,48 +22,58 @@ const Home = () => {
 
   return (
     <div className="Home">
-
-      <div className="Home--utility">
-        <div className='Home--filters'>
-          <h2>filters</h2>
-          <p>mayor price</p>
-          <p>lower price</p>
-
-        </div>
-
-        <div className='Home--categories'>
-          <h2>categories</h2>
-          {ProductCategory.map(p => (
-            <p onClick={() => {
-              dispatch(setCategoryThunk(p.id))
-            }}>
-              {p.name}
-            </p>
-          ))}
-        </div>
-      </div>
-
-      <div className='Home--Products'>
-        {products.map(product => (
-          <Link className='product' key={product.id} to={`products/${product.id}`}>
-            <img className='product--image' src={product.productImgs[0]} alt="Product--image" />
-
-            <div className='product--detail'>
-              <h3 className='product--title'>{product.title}</h3>
-              <div className='product--footer'>
-                <div>
-                  <p>{product.category.name}</p>
-                  <span className='product--price'>{product.price}</span>
-                </div>
-                <div>
-                  <p>{product.status}</p>
-                </div>
-              </div>
+      <Row>
+        <Col lg={3}>
+          <div className="Home--utility">
+            <div className='Home--filters'>
+              <h2>filters</h2>
+              <p>mayor price</p>
+              <p>lower price</p>
 
             </div>
-          </Link>
-        ))}
-      </div>
+
+            <div className='Home--categories'>
+              <h2>categories</h2>
+              {ProductCategory.map(p => (
+                <p onClick={() => {
+                  dispatch(setCategoryThunk(p.id))
+                }}>
+                  {p.name}
+                </p>
+              ))}
+            </div>
+          </div>
+        </Col>
+
+
+        <Col lg={9}>
+
+          <div className='Home--Products'>
+            {products.map(product => (
+              <Link className='product' key={product.id} to={`products/${product.id}`}>
+                <img className='product--image' src={product.productImgs[0]} alt="Product--image" />
+
+                <div className='product--detail'>
+                  <h5 className='product--title'>{product.title}</h5>
+                  <div className='product--footer'>
+                    <div>
+                      <p>{product.category.name}</p>
+                      <span className='product--price'>{product.price}</span>
+                    </div>
+                    <div>
+                      <p>{product.status}</p>
+                    </div>
+                  </div>
+
+                </div>
+              </Link>
+            ))}
+          </div>
+        </Col>
+      </Row>
+
+
+
     </div>
 
   );
