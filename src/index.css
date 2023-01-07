@@ -5,6 +5,7 @@
 
 .Home--utility {
   margin: 0 auto;
+  margin-bottom: 2rem;
   position: sticky;
   top: 20px;
   height: fit-content;

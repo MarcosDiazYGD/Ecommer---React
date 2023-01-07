@@ -25,12 +25,6 @@ const Home = () => {
       <Row>
         <Col lg={3}>
           <div className="Home--utility">
-            <div className='Home--filters'>
-              <h2>filters</h2>
-              <p>mayor price</p>
-              <p>lower price</p>
-
-            </div>
 
             <div className='Home--categories'>
               <h2>categories</h2>
