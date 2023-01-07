@@ -40,12 +40,14 @@ const ProductDetail = () => {
 
             <div className='productDetail-buttons'>
               <button onClick={addToCart}>Add to cart</button>
+              <div className='priceAndAmount'>
               <input type="number"
                 value={Number(amountProduct)}
                 onChange={e => setAmountProduct(e.target.value)}
                 min='1'
                 className='amountProduct' />
               <span>{product?.price}</span>
+              </div>
             </div>
           </div>
         </div>

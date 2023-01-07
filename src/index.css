@@ -115,10 +115,9 @@
 .Login {
   width: 100%;
   height: 80vh;
-  padding: 2rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
 }
 
 /* PAGE PRODUCT DETAIL */
@@ -158,6 +157,14 @@
 .amountProduct {
   border-radius: 10px;
   width: 40px;
+  text-align: center;
+}
+
+.priceAndAmount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 }
 
 .productDetail-buttons button:hover {
@@ -212,8 +219,7 @@
 .similar-products-title {
   width: fit-content;
   border-bottom: 1px solid gray;
-  margin-left: 1rem;
-  margin-bottom: 2rem;
+  margin: 2rem 1rem;
 }
 
 .similar-product-image {
@@ -227,12 +233,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  padding: 2rem ;
+}
+
+.mb-3 {
+  width: 100%;
+  max-width: 400px;
 }
 
 .login-input {
   color: silver;
   border-radius: 50px;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
 }
 
 .login-input:focus {
@@ -240,13 +254,14 @@
 }
 
 .login-button {
-  width: 400px;
+  width: 90%;
+  max-width: 400px;
   border-radius: 50px;
 }
 
 .link-signup,
 .link-login {
-  margin-top: 1rem;
+  margin: 2rem 0;
   text-decoration: none;
   color: black;
 }
@@ -403,4 +418,33 @@
 .cart-checkout h1 {
   padding: 10px 0;
   font-size: 30px;
+}
+
+
+@media screen and (max-width: 600px){
+  .Home--Products {
+    grid-template-columns: 1fr;
+  }
+
+  .container-similar-products {
+    grid-template-columns: 1fr;
+  }
+  
+  .ProductDetail-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .ProductDetail-info {
+    width: 100%;
+  }
+
+  .productDetail-buttons {
+    flex-direction: column-reverse;
+  }
+
+  .ProductDetail-slide {
+    width: 100%;
+  }
+
 }
